@@ -1,43 +1,79 @@
 #include <iostream>
 using namespace std;
+#define MAX 100
 
-// defining the size of the array:
-#define SIZE 5
+int stackArr[MAX];
+int top = -1;
 
-int stackArr[SIZE];
-int top = -1; // empty stack
-
-// function to perform push operations
-void push(int value)
+// 1.checking our stack is full or not
+bool isFull()
 {
-
-    // condition : overflow:
-    if (top == SIZE - 1)
-    {
-        cout << "Stack Overflow" << endl;
-        return;
-    }
-
-    // we will move to upward and put our value
-    top++;
-    stackArr[top] = value;
-
-    cout << "Pushed value is: " << value << endl;
+    return top == MAX - 1; // overflow
 }
 
+// 2. checking our stack is empty or not:
+bool isEmpty()
+{
+    return top == -1; /// underflow
+}
+
+// 3.Push operation:
+void push(int value)
+{
+    if (isFull())
+    {
+        cout << "Stack is overflow" << endl;
+        return;
+    }
+    top++;                 // moving top upward
+    stackArr[top] = value; // inserting values at top
+}
+
+// 4. Pop operation:
+void pop()
+{
+    if (isEmpty())
+    {
+        cout << "Stack is overflow" << endl;
+        return;
+    }
+    int x = stackArr[top];
+
+    top--; // reducing top value
+    cout << "Popped value:" << x << endl;
+}
+
+// 5. peep element/ return top element in stack:
+int peek()
+{
+    if (isFull())
+    {
+        cout << "Stack is overflow" << endl;
+        return -1;
+    }
+    return stackArr[top];
+}
+
+// 6. size of stack:
+int issize()
+{
+    return top + 1;
+}
+
+// To display:
 void display()
 {
-    if (top == -1)
+    if (isEmpty())
     {
-        cout << "Stack is empty" << endl;
+        cout << "This stack is empty" << endl;
         return;
     }
 
-    cout << "Stack elements are (top -> bottom):";
+    cout << "Stack top + bottom values are:" << endl;
 
     for (int i = top; i >= 0; i--)
     {
-        cout << stackArr[i] << " ";
+        cout << stackArr[i] << endl;
     }
 }
 
@@ -47,13 +83,17 @@ int main()
     push(10);
     push(20);
     push(30);
-    push(40);
-    push(50);
-
     display();
 
-    push(60);
+    // pop:
+    pop();
     display();
+
+    // peek
+    cout << "Top element:" << peek()<<"\n";
+
+    // size:
+    cout << "Size of stack is: " << issize();
 
     return 0;
 }

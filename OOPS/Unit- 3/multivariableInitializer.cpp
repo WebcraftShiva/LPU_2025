@@ -20,7 +20,6 @@ public:
 
 int main()
 {
-
     Demo obj(10, 5.5);
     obj.show();
     return 0;

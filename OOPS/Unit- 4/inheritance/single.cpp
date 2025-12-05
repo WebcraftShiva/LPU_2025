@@ -1,35 +1,63 @@
 #include <iostream>
 using namespace std;
 
+//  USing maths operations:
+
 // Base class:
-class Animal
+class Number
 {
+protected:
+    int x;
+
 public:
-    void eat()
+    void setX(int n)
     {
-        cout << "Animal is eating fruit";
+        x = n;
     }
 };
 
-// Derived classs:
-class Dog : public Animal
+// derived class:
+class Square : public Number
 {
 public:
-    void bark()
+    void calculate()
     {
-        cout << "Dog is barking";
+        cout << "Square is: " << x * x << endl;
     }
 };
 
 int main()
 {
-    Dog d;
-    d.eat();
-    d.bark();
-    return 0;
+    Square s;
+    s.setX(7);
+    s.calculate();
 }
 
+// Normal one
+// // Base class:
+// class Animal
+// {
+// public:
+//     void eat()
+//     {
+//         cout << "Animal is eating fruit";
+//     }
+// };
 
-// Base class: student: memeber function getInfo: vcout
+// // Derived classs:
+// class Dog : public Animal
+// {
+// public:
+//     void bark()
+//     {
+//         cout << "Dog is barking";
+//     }
+// };
 
-// Derived class: BtechStudent:cout: i am group 2 student
+// int main()
+// {
+//     Dog d;
+//     d.eat();
+//     d.bark();
+//     return 0;
+// }

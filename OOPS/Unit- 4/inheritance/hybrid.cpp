@@ -1,4 +1,4 @@
-// Hybrid Inheritance: Its a combination of multiple inheritance and hierarichal inheritance:
+// Hybrid Inheritance: Its a combination of multiple inheritance and hierarichal/multilevel inheritance:
 
 #include <iostream>
 using namespace std;

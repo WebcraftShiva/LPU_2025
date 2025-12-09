@@ -27,6 +27,12 @@ int main()
 {
 
     C obj;
+
+    // PART 2: resolved using scope resolution:
+    obj.A::show();
+    obj.B::show();
+
+    // PART 1
     // obj.show();  // Error ambiguous
     cout << "Above one is Ambiguous logic";
 

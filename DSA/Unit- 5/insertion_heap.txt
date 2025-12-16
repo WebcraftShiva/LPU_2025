@@ -1,3 +1,24 @@
+// For MAX HEAP:
+INSERT(heap, newElement):
+    // Step 1: Insert at end
+    // The new element is added at the end of the array.
+    //index stores the position where new element is inserted.
+    heap.append(newElement)
+    index = heap.size - 1
+    
+    // Step 2: Bubble up: index stores the position where new element is inserted.
+    while index > 0:
+       //Finding Parent:
+        parentIndex = (index - 1) / 2
+        
+        // checking max heap
+        if heap[index] > heap[parentIndex]:  // For max-heap
+            swap(heap[index], heap[parentIndex])
+            index = parentIndex
+        else:
+            break
+
+// FOR MIN HEAP:
 INSERT(heap, newElement):
     // Step 1: Add to end
     heap.append(newElement)

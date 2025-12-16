@@ -1,0 +1,52 @@
+// For MAX HEAP:
+DELETE_MAX(heap):
+    if heap is empty:
+        return null
+    
+    // Step 1: Save max and replace with last:
+    // heap[0] is the maximum element.
+    // Save it in maxValue
+    // Move the last element into the root position.
+    //Remove last because it is now duplicated.
+    maxValue = heap[0]
+    heap[0] = heap[last]
+    heap.removeLastElement()
+    
+    // Step 2: Bubble down: Start from root and keep moving down until heap property is correct.
+    index = 0
+    while has at least one child:
+        leftChild = 2 * index + 1
+        rightChild = 2 * index + 2
+        largerChild = index of larger child
+        
+        if heap[index] < heap[largerChild]:
+            swap(heap[index], heap[largerChild])
+            index = largerChild
+        else:
+            break
+    
+    return maxValue
+
+
+
+//MIN HEAP:
+DELETE_MIN(heap):
+    if heap is empty:
+        return null
+    // Step 1: Save min and replace with last
+    minValue = heap[0]
+    heap[0] = heap[last]
+    heap.removeLastElement()
+    // Step 2: Bubble down
+    index = 0
+    while has at least one child:
+        leftChild = 2 * index + 1
+        rightChild = 2 * index + 2
+        // Choose smaller child
+        smallerChild = index of smaller child
+        if heap[index] > heap[smallerChild]:
+            swap(heap[index], heap[smallerChild])
+            index = smallerChild
+        else:
+            break
+    return minValue
